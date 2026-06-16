@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ForgePage } from "./_components/ForgePage";
 
 export const metadata: Metadata = {
-  title: "Mercado y Subasta",
+  title: "Market & Auction House",
   description:
-    "Consulta precios en vivo de todos los items de Albion Online. Busca armas, armaduras, recursos y más con historial de mercado.",
+    "Live prices for all Albion Online items. Search weapons, armor, resources and more with market history.",
   openGraph: {
-    title: "Albion Forge — Mercado y Subasta",
-    description: "Precios en vivo, historial y análisis de items de Albion Online.",
+    title: "Albion Forge — Market & Auction House",
+    description: "Live prices, history and analysis for Albion Online items.",
   },
 };
 

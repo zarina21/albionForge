@@ -96,12 +96,6 @@
       "namedRegex": "^/admin/builds/new(?:/)?$"
     },
     {
-      "page": "/build",
-      "regex": "^/build(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/build(?:/)?$"
-    },
-    {
       "page": "/builds",
       "regex": "^/builds(?:/)?$",
       "routeKeys": {},
@@ -148,12 +142,6 @@
       "regex": "^/professions(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/professions(?:/)?$"
-    },
-    {
-      "page": "/recoleccion",
-      "regex": "^/recoleccion(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/recoleccion(?:/)?$"
     },
     {
       "page": "/resources",

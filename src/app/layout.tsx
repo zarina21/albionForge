@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { QueryProvider } from "./providers";
 import { Header } from "@/components/Header";
@@ -12,21 +13,35 @@ export const metadata: Metadata = {
   description:
     "Real-time Albion Online market prices, item search, recipes and build theorycrafting.",
   authors: [{ name: "Albion Forge" }],
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     title: "Albion Forge — Theorycrafting & Market",
     description:
       "Search items, view live prices across cities and chart history.",
     type: "website",
+    images: ["/albionForge.png"],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: ["/albionForge.png"],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" translate="no">
+    <html lang="en" className="dark" translate="no" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const _log=console.log,_warn=console.warn,_error=console.error,_info=console.info;
+              console.log=console.warn=console.info=()=>{};
+              console.error=(...a)=>{if(a[0]&&typeof a[0]==='string'&&a[0].includes('hydration'))return;_error(...a)};
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -35,12 +50,46 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8322554866454465"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
         <QueryProvider>
           <Header />
           <ForgeNav />
-          {children}
+          <div className="flex justify-center">
+            <aside className="hidden lg:block w-[160px] shrink-0 sticky top-[73px] h-[calc(100vh-73px)]">
+              <div className="p-2 flex justify-center">
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-8322554866454465"
+                  data-ad-slot="0000000000"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
+              </div>
+            </aside>
+            <main className="flex-1 min-w-0">
+              {children}
+            </main>
+            <aside className="hidden lg:block w-[160px] shrink-0 sticky top-[73px] h-[calc(100vh-73px)]">
+              <div className="p-2 flex justify-center">
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-8322554866454465"
+                  data-ad-slot="0000000000"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
+              </div>
+            </aside>
+          </div>
           <footer className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-            Datos proporcionados por{" "}
+            Data provided by{" "}
             <a
               href="https://www.albion-online-data.com"
               className="text-gold hover:underline"
@@ -49,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
               Albion Online Data Project
             </a>
-            . No afiliado con Sandbox Interactive.
+            . Not affiliated with Sandbox Interactive.
           </footer>
         </QueryProvider>
       </body>

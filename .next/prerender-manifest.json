@@ -98,7 +98,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/build": {
+    "/admin": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -111,8 +111,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/build",
-      "dataRoute": "/build.rsc",
+      "srcRoute": "/admin",
+      "dataRoute": "/admin.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -146,30 +146,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/admin": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/admin",
-      "dataRoute": "/admin.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/builds/popular": {
       "experimentalBypassFor": [
         {
@@ -185,30 +161,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/popular",
       "dataRoute": "/builds/popular.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/builds/recommended": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/builds/recommended",
-      "dataRoute": "/builds/recommended.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -242,6 +194,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/builds/recommended": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/builds/recommended",
+      "dataRoute": "/builds/recommended.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/gold": {
       "experimentalBypassFor": [
         {
@@ -257,6 +233,30 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/gold",
       "dataRoute": "/gold.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/market": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/market",
+      "dataRoute": "/market.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -338,31 +338,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/recoleccion": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/recoleccion",
-      "dataRoute": "/recoleccion.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/builds/cmqg1peqb00005wvadi8tjg1j": {
+    "/builds/cmqg71xcl0000igvax7brn29o": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -376,7 +352,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1peqb00005wvadi8tjg1j.rsc",
+      "dataRoute": "/builds/cmqg71xcl0000igvax7brn29o.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -386,7 +362,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pey300015wvaq28yd6ty": {
+    "/builds/cmqg71xp30001igvabl2vvy4z": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -400,7 +376,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pey300015wvaq28yd6ty.rsc",
+      "dataRoute": "/builds/cmqg71xp30001igvabl2vvy4z.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -410,7 +386,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pf3o00025wvawm2ylvbd": {
+    "/builds/cmqg71y100002igvacd3t2jgy": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -424,7 +400,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pf3o00025wvawm2ylvbd.rsc",
+      "dataRoute": "/builds/cmqg71y100002igvacd3t2jgy.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -434,7 +410,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pf8000035wvakbq22o4x": {
+    "/builds/cmqg71yd10003igva43x69hfr": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -448,7 +424,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pf8000035wvakbq22o4x.rsc",
+      "dataRoute": "/builds/cmqg71yd10003igva43x69hfr.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -458,7 +434,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pfc600045wvapgni7pq5": {
+    "/builds/cmqg71you0004igvail0exzad": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -472,7 +448,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pfc600045wvapgni7pq5.rsc",
+      "dataRoute": "/builds/cmqg71you0004igvail0exzad.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -482,7 +458,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pfg500055wvaq5eo8k57": {
+    "/builds/cmqg71z0l0005igvaxpysbbiv": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -496,7 +472,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pfg500055wvaq5eo8k57.rsc",
+      "dataRoute": "/builds/cmqg71z0l0005igvaxpysbbiv.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -506,7 +482,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pfk200065wvaq413ue84": {
+    "/builds/cmqg71zcg0006igvacemyy8ot": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -520,7 +496,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pfk200065wvaq413ue84.rsc",
+      "dataRoute": "/builds/cmqg71zcg0006igvacemyy8ot.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -530,7 +506,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pfnw00075wva3wfg22em": {
+    "/builds/cmqg71zov0007igvacg0m9mng": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -544,7 +520,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pfnw00075wva3wfg22em.rsc",
+      "dataRoute": "/builds/cmqg71zov0007igvacg0m9mng.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -554,7 +530,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pfyr00085wvazjz93dfx": {
+    "/builds/cmqg7201e0008igvajdv6qodh": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -568,7 +544,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pfyr00085wvazjz93dfx.rsc",
+      "dataRoute": "/builds/cmqg7201e0008igvajdv6qodh.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -578,7 +554,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pg4j00095wvax7kb36wg": {
+    "/builds/cmqg720dq0009igva9x8hmgbh": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -592,7 +568,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pg4j00095wvax7kb36wg.rsc",
+      "dataRoute": "/builds/cmqg720dq0009igva9x8hmgbh.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -602,7 +578,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pg9a000a5wvakg1wxmy5": {
+    "/builds/cmqg720pi000aigvar3qpkc2k": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -616,7 +592,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pg9a000a5wvakg1wxmy5.rsc",
+      "dataRoute": "/builds/cmqg720pi000aigvar3qpkc2k.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -626,7 +602,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/builds/cmqg1pgdy000b5wvab9a2243p": {
+    "/builds/cmqg72112000bigvauw9xm5wy": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -640,31 +616,7 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/builds/[id]",
-      "dataRoute": "/builds/cmqg1pgdy000b5wvab9a2243p.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/market": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/market",
-      "dataRoute": "/market.rsc",
+      "dataRoute": "/builds/cmqg72112000bigvauw9xm5wy.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -704,8 +656,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "cfa5681e2bdabf4b1f7e2d664491ab81",
-    "previewModeSigningKey": "4a81ce15c0acab628fc50a7d4f6f6fe7d71f805143110fd4c5104f383ac1ce2a",
-    "previewModeEncryptionKey": "e980ada9e01fb61ea814fb5837bf1e5242dc9b565d35a3840f8df7133de46efc"
+    "previewModeId": "3d96ece77c732546ddc6fe23cca0882f",
+    "previewModeSigningKey": "9e556e72c4b016edd261dc542293d05cd7747db438cc7b0e8b708c4c23a45c77",
+    "previewModeEncryptionKey": "7881b485a8db44c82f571f02eab1c5920071480e38571897eba00c3900e361a3"
   }
 }
