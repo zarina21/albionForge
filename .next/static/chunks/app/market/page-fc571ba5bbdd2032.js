@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[967],{79886:(e,s,r)=>{Promise.resolve().then(r.bind(r,80598))},80598:(e,s,r)=>{"use strict";r.d(s,{MarketPage:()=>t});var n=r(95155),a=r(58837);function t(){return(0,n.jsx)(a.ForgePage,{})}}},e=>{e.O(0,[502,473,837,441,255,358],()=>e(e.s=79886)),_N_E=e.O()}]);

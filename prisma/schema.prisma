@@ -1,0 +1,189 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Item {
+  id              Int     @id @default(autoincrement())
+  uniqueName      String  @unique
+  localizedNameEn String?
+  localizedNameEs String?
+  category        String?
+  subCategory     String?
+  tier            Int?
+  slot            String?
+  iconUrl         String?
+}
+
+model MarketPrice {
+  id               Int      @id @default(autoincrement())
+  server           String
+  location         String
+  itemUniqueName   String
+  quality          Int
+  sellPriceMin     Float?
+  sellPriceMinDate String?
+  sellPriceMax     Float?
+  buyPriceMin      Float?
+  buyPriceMax      Float?
+  buyPriceMaxDate  String?
+  createdAt        DateTime @default(now())
+}
+
+model GoldPrice {
+  id        Int      @id @default(autoincrement())
+  server    String
+  price     Float
+  timestamp DateTime
+  createdAt DateTime @default(now())
+}
+
+model Build {
+  id                String   @id @default(cuid())
+  title             String
+  slug              String   @unique
+  description       String?
+  contentType       String
+  partySize         String?
+  role              String
+  weaponLine        String
+  mainHand          String
+  offHand           String?
+  head              String
+  chest             String
+  shoes             String
+  cape              String?
+  bag               String?
+  mount             String?
+  food              String?
+  potion            String?
+  tierRecommended   Int?
+  enchantRecommended Int?
+  ipMin             Int?
+  budgetLevel       String   @default("medium")
+  difficulty        String   @default("medium")
+  patchVersion      String?
+  lastVerifiedAt    DateTime?
+  author            String?
+  status            String   @default("active")
+  sourceType        String   @default("manual")
+  isRecommended     Boolean  @default(false)
+  isPopular         Boolean  @default(false)
+  isCheap           Boolean  @default(false)
+  isOutdated        Boolean  @default(false)
+  pros              String?
+  cons              String?
+  combo             String?
+  strongAgainst     String?
+  weakAgainst       String?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  items             BuildItem[]
+  stats             BuildStats[]
+  costSnapshots     BuildCostSnapshot[]
+  reviews           BuildReview[]
+}
+
+model BuildItem {
+  id                 Int      @id @default(autoincrement())
+  buildId            String
+  slot               String
+  itemName           String
+  itemUniqueName     String
+  tier               Int?
+  enchantment        Int?
+  quality            Int      @default(1)
+  currentPrice       Float?
+  currentPriceCity   String?
+  lastPriceUpdate    DateTime?
+  build              Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+}
+
+model BuildStats {
+  id            Int      @id @default(autoincrement())
+  buildId       String
+  source        String?
+  contentType   String?
+  sampleSize    Int      @default(0)
+  usages        Int      @default(0)
+  kills         Int      @default(0)
+  deaths        Int      @default(0)
+  assists       Int      @default(0)
+  winRate       Float?
+  fameRatio     Float?
+  killFame      Float?
+  deathFame     Float?
+  averageIp     Float?
+  dateRange     String?
+  lastSyncedAt  DateTime?
+  build         Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+}
+
+model BuildCostSnapshot {
+  id              Int      @id @default(autoincrement())
+  buildId         String
+  server          String   @default("west")
+  city            String   @default("Bridgewatch")
+  totalCost       Float?
+  mainHandCost    Float?
+  offHandCost     Float?
+  headCost        Float?
+  chestCost       Float?
+  shoesCost       Float?
+  capeCost        Float?
+  bagCost         Float?
+  mountCost       Float?
+  foodCost        Float?
+  potionCost      Float?
+  dataFreshness   String?
+  createdAt       DateTime @default(now())
+  build           Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+}
+
+model BuildReview {
+  id               Int      @id @default(autoincrement())
+  buildId          String
+  reviewerName     String?
+  patchVersion     String?
+  reviewNotes      String?
+  verifiedAt       DateTime @default(now())
+  statusAfterReview String?
+  build            Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+}
+
+model Resource {
+  id              Int     @id @default(autoincrement())
+  resourceType    String
+  tier            Int?
+  enchantment     Int?
+  rawItemId       String?
+  refinedItemId   String?
+  biome           String?
+  primaryCity     String?
+  riskZone        String?
+  difficulty      String?
+  rawPrice        Float?
+  refinedPrice    Float?
+  tips            String?
+}
+
+model ProfessionGuide {
+  id               Int     @id @default(autoincrement())
+  profession       String
+  professionType   String
+  resource         String?
+  tier             Int?
+  recommendedZone  String?
+  recommendedBiome String?
+  recommendedTool  String?
+  recommendedGear  String?
+  riskLevel        String?
+  profitNotes      String?
+  tips             String?
+}
