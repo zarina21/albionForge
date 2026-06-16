@@ -43,6 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <meta name="google-adsense-account" content="ca-pub-8322554866454465" />
+        <meta name="google" content="notranslate" />
+        <meta name="notranslate" content="notranslate" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
