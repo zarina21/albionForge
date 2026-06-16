@@ -6,6 +6,10 @@ import { AdminBuildsClient } from "./AdminBuildsClient";
 export const metadata: Metadata = {
   title: "Admin — Builds",
   description: "Manage all builds in the database.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function AdminBuildsPage() {

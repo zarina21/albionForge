@@ -5,6 +5,10 @@ import { AdminPage } from "./_components/AdminPage";
 export const metadata: Metadata = {
   title: "Admin",
   description: "Albion Forge admin panel — view and manage database records.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function Page() {

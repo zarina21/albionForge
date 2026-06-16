@@ -3,9 +3,32 @@ import { prisma } from "@/lib/prisma";
 import { isBuildOutdated } from "@/lib/builds/buildOutdatedService";
 import { BuildPageClient } from "../BuildPageClient";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://albionforge.online";
+
 export const metadata: Metadata = {
   title: "Popular PvP Builds",
-  description: "Builds detected from recent PvP data — popular in the current meta.",
+  description:
+    "The most popular Albion Online PvP builds detected from recent PvP data. Discover what top players are using in the current meta.",
+  keywords: [
+    "popular Albion builds",
+    "meta Albion builds",
+    "top PvP builds Albion",
+    "Albion meta builds",
+    "most used Albion builds",
+    "Albion PvP meta",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/builds/popular`,
+  },
+  openGraph: {
+    title: "Albion Forge — Popular PvP Builds",
+    description: "The most popular Albion Online PvP builds detected from recent PvP killboard data.",
+    url: `${SITE_URL}/builds/popular`,
+  },
+  twitter: {
+    title: "Albion Forge — Popular PvP Builds",
+    description: "The most popular Albion Online PvP builds detected from recent PvP killboard data.",
+  },
 };
 
 export default async function PopularPage() {

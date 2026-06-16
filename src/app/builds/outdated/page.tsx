@@ -5,9 +5,30 @@ import Link from "next/link";
 import { AlertTriangle, Clock, Shield } from "lucide-react";
 import { BuildStatusBadge } from "@/components/builds/Badges";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://albionforge.online";
+
 export const metadata: Metadata = {
-  title: "Outdated Builds",
-  description: "Builds that need review — affected by balance changes or recent patches.",
+  title: "Outdated Builds — Needs Review",
+  description:
+    "Albion Online builds that need review. Affected by balance changes or recent patches — check before investing silver.",
+  keywords: [
+    "outdated Albion builds",
+    "Albion build review",
+    "patched Albion builds",
+    "Albion balance changes builds",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/builds/outdated`,
+  },
+  openGraph: {
+    title: "Albion Forge — Outdated Builds",
+    description: "Builds affected by balance changes or patches — review before using.",
+    url: `${SITE_URL}/builds/outdated`,
+  },
+  twitter: {
+    title: "Albion Forge — Outdated Builds",
+    description: "Builds affected by balance changes or patches — review before using.",
+  },
 };
 
 export default async function OutdatedPage() {

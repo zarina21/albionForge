@@ -163,9 +163,9 @@ export function ForgePage() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6">
         <div className="text-center max-w-2xl mx-auto mb-8">
-          <h2 className="font-display text-4xl sm:text-5xl text-gold mb-3">
+          <h1 className="font-display text-4xl sm:text-5xl text-gold mb-3">
             Forge Your Perfect Build
-          </h2>
+          </h1>
           <p className="text-muted-foreground">
             Search any Albion item, check live prices across all cities and track
             market history.

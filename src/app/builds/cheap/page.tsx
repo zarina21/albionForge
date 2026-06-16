@@ -3,9 +3,31 @@ import { prisma } from "@/lib/prisma";
 import { isBuildOutdated } from "@/lib/builds/buildOutdatedService";
 import { BuildPageClient } from "../BuildPageClient";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://albionforge.online";
+
 export const metadata: Metadata = {
-  title: "Cheap Builds",
-  description: "Affordable builds calculated with current market prices from Albion Online.",
+  title: "Cheap & Budget Builds",
+  description:
+    "Affordable Albion Online builds calculated with current market prices. Find budget-friendly PvP and PvE builds optimized for cost efficiency.",
+  keywords: [
+    "cheap Albion builds",
+    "budget Albion builds",
+    "affordable Albion builds",
+    "low cost PvP Albion",
+    "Albion builds cheap silver",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/builds/cheap`,
+  },
+  openGraph: {
+    title: "Albion Forge — Cheap & Budget Builds",
+    description: "Affordable Albion Online builds with market-calculated costs for budget-conscious players.",
+    url: `${SITE_URL}/builds/cheap`,
+  },
+  twitter: {
+    title: "Albion Forge — Cheap & Budget Builds",
+    description: "Affordable Albion Online builds with market-calculated costs for budget-conscious players.",
+  },
 };
 
 export default async function CheapPage() {

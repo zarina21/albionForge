@@ -9,7 +9,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3">
           <img
             src="/albionForge.png"
-            alt="Albion Forge"
+            alt="Albion Forge — Home"
             className="h-12 w-auto"
           />
         </Link>

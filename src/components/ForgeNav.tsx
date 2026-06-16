@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Shield, Package, Coins, Pickaxe, BookOpen } from "lucide-react";
+import { Shield, Package, Coins, Pickaxe, BookOpen, Mail } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/market", label: "Market", icon: Package },
@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: "/gold", label: "Gold", icon: Coins },
   { href: "/resources", label: "Resources", icon: Pickaxe },
   { href: "/professions", label: "Professions", icon: BookOpen },
+  { href: "/contact", label: "Contact", icon: Mail },
 ] as const;
 
 export function ForgeNav() {

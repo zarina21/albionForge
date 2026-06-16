@@ -58,9 +58,9 @@ export function GoldPage() {
             <Coins className="w-7 h-7 text-gold" />
           </div>
           <div>
-            <h2 className="font-display text-3xl text-gold">Precio del Oro</h2>
+            <h1 className="font-display text-3xl text-gold">Gold Price</h1>
             <p className="text-sm text-muted-foreground">
-              Última cotización:{" "}
+              Latest price:{" "}
               <span className="text-gold font-semibold tabular-nums">
                 {latest ? latest.toLocaleString() : "..."}
               </span>{" "}
@@ -72,7 +72,7 @@ export function GoldPage() {
         <div className="bg-card border border-border rounded-xl p-4 h-[480px]">
           {goldQ.isLoading ? (
             <div className="h-full flex items-center justify-center text-muted-foreground">
-              Cargando datos…
+              Loading data...
             </div>
           ) : (
             <ResponsiveContainer width="100%" height="100%">

@@ -6,6 +6,10 @@ import { EditBuildClient } from "./EditBuildClient";
 export const metadata: Metadata = {
   title: "Edit Build",
   description: "Edit build details.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 interface Props {
