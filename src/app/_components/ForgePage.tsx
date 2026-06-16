@@ -47,7 +47,7 @@ function itemIconUrl(uid: string) {
 }
 
 function getName(it: AlbionItem) {
-  return it.LocalizedNames?.["ES-ES"] || it.LocalizedNames?.["EN-US"] || it.UniqueName;
+  return it.LocalizedNames?.["EN-US"] || it.LocalizedNames?.["ES-ES"] || it.UniqueName;
 }
 
 function formatSilver(n: number) {
@@ -56,20 +56,20 @@ function formatSilver(n: number) {
 }
 
 const QUICK_PICKS: { uid: string; label: string }[] = [
-  { uid: "T4_BAG", label: "Bolsa T4" },
+  { uid: "T4_BAG", label: "Bag T4" },
   { uid: "T6_2H_NATURESTAFF_KEEPER", label: "Wild Staff T6" },
-  { uid: "T5_MAIN_SWORD", label: "Espada T5" },
-  { uid: "T4_POTION_HEAL", label: "Poción T4" },
-  { uid: "T6_MEAL_OMELETTE", label: "Tortilla T6" },
-  { uid: "T8_MOUNT_HORSE", label: "Caballo T8" },
+  { uid: "T5_MAIN_SWORD", label: "Sword T5" },
+  { uid: "T4_POTION_HEAL", label: "Heal Potion T4" },
+  { uid: "T6_MEAL_OMELETTE", label: "Omelette T6" },
+  { uid: "T8_MOUNT_HORSE", label: "Horse T8" },
 ];
 
 const QUALITIES = [
   { id: 1, label: "Normal" },
-  { id: 2, label: "Buena" },
-  { id: 3, label: "Sobresaliente" },
-  { id: 4, label: "Excelente" },
-  { id: 5, label: "Obra maestra" },
+  { id: 2, label: "Good" },
+  { id: 3, label: "Outstanding" },
+  { id: 4, label: "Excellent" },
+  { id: 5, label: "Masterpiece" },
 ];
 
 export function ForgePage() {
@@ -164,11 +164,11 @@ export function ForgePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6">
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h2 className="font-display text-4xl sm:text-5xl text-gold mb-3">
-            Forja tu build perfecta
+            Forge Your Perfect Build
           </h2>
           <p className="text-muted-foreground">
-            Busca cualquier item de Albion, consulta precios en vivo de todas las
-            ciudades y traza la historia del mercado.
+            Search any Albion item, check live prices across all cities and track
+            market history.
           </p>
         </div>
 
@@ -181,7 +181,7 @@ export function ForgePage() {
               const t = setTimeout(() => setDebounced(e.target.value.trim()), 300);
               return () => clearTimeout(t);
             }}
-            placeholder="Buscar item: 'Bag', 'Sword', 'Espada', 'T6_BAG'..."
+            placeholder="Search item: 'Bag', 'Sword', 'T5_MAIN_SWORD'..."
             className="w-full pl-12 pr-4 py-4 bg-card border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-base placeholder:text-muted-foreground/70"
           />
           {searchQ.isFetching && (
@@ -193,7 +193,7 @@ export function ForgePage() {
           <div className="max-w-2xl mx-auto mt-3 bg-card border border-border rounded-xl overflow-hidden shadow-xl shadow-black/40 max-h-96 overflow-y-auto">
             {searchQ.data.items.length === 0 && (
               <div className="p-6 text-center text-muted-foreground text-sm">
-                Sin resultados para &quot;{debounced}&quot;
+                No results for &quot;{debounced}&quot;
               </div>
             )}
             {searchQ.data.items.map((it: AlbionItem) => {
@@ -278,11 +278,11 @@ function EmptyState({ onPick }: { onPick: (i: AlbionItem) => void }) {
     <div className="grid md:grid-cols-3 gap-4">
       <div className="md:col-span-2 bg-card border border-border rounded-xl p-8">
         <Hammer className="w-8 h-8 text-gold mb-4" />
-        <h3 className="font-display text-2xl text-gold mb-2">Empieza tu análisis</h3>
+        <h3 className="font-display text-2xl text-gold mb-2">Start Your Analysis</h3>
         <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-          Busca un item arriba o elige uno de los más populares. Verás precios en
-          tiempo real en las 8 ciudades, su tendencia histórica y los ingredientes
-          de crafteo.
+          Search for an item above or pick one of the most popular. You&apos;ll see
+          real-time prices across 8 cities, historical trends and crafting
+          ingredients.
         </p>
         <div className="flex flex-wrap gap-2">
           {QUICK_PICKS.map((q) => (
@@ -304,11 +304,10 @@ function EmptyState({ onPick }: { onPick: (i: AlbionItem) => void }) {
       </div>
       <div className="bg-gradient-to-br from-accent/60 to-card border border-border rounded-xl p-6">
         <Sparkles className="w-6 h-6 text-gold mb-3" />
-        <h4 className="font-display text-lg text-gold mb-2">Tip de Forge</h4>
+        <h4 className="font-display text-lg text-gold mb-2">Forge Tip</h4>
         <p className="text-sm text-muted-foreground leading-relaxed">
-          Compara siempre el precio en <span className="text-gold">Caerleon</span>{" "}
-          con tu ciudad de origen — el riesgo del viaje suele compensar con un
-          15-30% de margen.
+          Always compare the price in <span className="text-gold">Caerleon</span>{" "}
+          with your home city — the travel risk is usually worth a 15-30% margin.
         </p>
       </div>
     </div>
@@ -331,7 +330,7 @@ function ItemHeader({ item }: { item: AlbionItem }) {
       {tier > 0 && (
         <div className="text-right">
           <div className="font-display text-3xl text-gold">{TIER_LABELS[tier]}</div>
-          {enchant > 0 && <div className="text-xs text-ember">Encantamiento .{enchant}</div>}
+          {enchant > 0 && <div className="text-xs text-ember">Enchantment .{enchant}</div>}
         </div>
       )}
     </div>
@@ -353,7 +352,7 @@ function TierSelector({
   return (
     <section>
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-xs uppercase tracking-wider text-muted-foreground">Cambiar tier</span>
+        <span className="text-xs uppercase tracking-wider text-muted-foreground">Change Tier</span>
       </div>
       <div className="flex flex-wrap gap-2">
         {tiers.map((t) => {
@@ -395,7 +394,7 @@ function EnchantSelector({
   return (
     <section>
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-xs uppercase tracking-wider text-muted-foreground">Encantamiento</span>
+        <span className="text-xs uppercase tracking-wider text-muted-foreground">Enchantment</span>
       </div>
       <div className="flex flex-wrap gap-2">
         {enchants.map((e) => {
@@ -431,7 +430,7 @@ function QualitySelector({
   return (
     <section>
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-xs uppercase tracking-wider text-muted-foreground">Calidad</span>
+        <span className="text-xs uppercase tracking-wider text-muted-foreground">Quality</span>
       </div>
       <div className="flex flex-wrap gap-2">
         {QUALITIES.map((q) => {
@@ -462,7 +461,7 @@ function timeAgo(iso?: string) {
   if (Number.isNaN(d)) return "—";
   const diff = Date.now() - d;
   const m = Math.floor(diff / 60000);
-  if (m < 1) return "ahora";
+  if (m < 1) return "now";
   if (m < 60) return `${m}m`;
   const h = Math.floor(m / 60);
   if (h < 24) return `${h}h`;
@@ -496,26 +495,26 @@ function MarketGrid({
       <div className="flex items-center justify-between gap-2 mb-4 flex-wrap">
         <div className="flex items-center gap-2">
           <MapPin className="w-5 h-5 text-gold" />
-          <h3 className="font-display text-xl text-gold">Casa de Subastas</h3>
+          <h3 className="font-display text-xl text-gold">Auction House</h3>
         </div>
         <div className="flex items-center gap-4 text-xs">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm bg-emerald-400/80" />
-            <span className="text-muted-foreground">Mejor venta</span>
+            <span className="text-muted-foreground">Best Sell</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm bg-primary/80" />
-            <span className="text-muted-foreground">Mejor compra</span>
+            <span className="text-muted-foreground">Best Buy</span>
           </div>
         </div>
       </div>
 
       <div className="overflow-hidden rounded-xl border border-border bg-card">
         <div className="grid grid-cols-[1.6fr_1fr_1fr_0.7fr] sm:grid-cols-[2fr_1.2fr_1.2fr_0.8fr] items-center gap-2 px-4 py-2.5 bg-gradient-to-b from-accent/70 to-accent/30 border-b border-gold/20 text-[10px] sm:text-xs uppercase tracking-wider text-gold/80 font-display">
-          <span>Ubicación</span>
-          <span className="text-right">Orden de venta</span>
-          <span className="text-right">Orden de compra</span>
-          <span className="text-right">Actualizado</span>
+          <span>Location</span>
+          <span className="text-right">Sell Order</span>
+          <span className="text-right">Buy Order</span>
+          <span className="text-right">Updated</span>
         </div>
 
         {loading ? (
@@ -524,7 +523,7 @@ function MarketGrid({
           </div>
         ) : orders.length === 0 ? (
           <div className="py-12 text-center text-muted-foreground text-sm">
-            Sin órdenes en el mercado para esta calidad.
+            No market orders for this quality.
           </div>
         ) : (
           CITIES.map((city, i) => {
@@ -597,7 +596,7 @@ function HistoryChart({
     <section>
       <div className="flex items-center gap-2 mb-4">
         <TrendingUp className="w-5 h-5 text-gold" />
-        <h3 className="font-display text-xl text-gold">Historial de precios (diario)</h3>
+        <h3 className="font-display text-xl text-gold">Price History (Daily)</h3>
       </div>
       <div className="bg-card border border-border rounded-xl p-4 h-80">
         {loading ? (
@@ -606,7 +605,7 @@ function HistoryChart({
           </div>
         ) : data.length === 0 ? (
           <div className="h-full flex items-center justify-center text-muted-foreground text-sm">
-            Sin datos históricos para este item.
+            No historical data for this item.
           </div>
         ) : (
           <ResponsiveContainer width="100%" height="100%">
@@ -651,17 +650,17 @@ function CraftRecipe({ item }: { item: AlbionItem }) {
   const base = item.UniqueName.replace(/@\d/, "");
   const ingredients: { uid: string; label: string; qty: number }[] = [];
   if (/SWORD|AXE|MACE|HAMMER|CROSSBOW|DAGGER|SPEAR/.test(base)) {
-    ingredients.push({ uid: `T${tier}_METALBAR`, label: "Lingote", qty: 16 });
-    ingredients.push({ uid: `T${tier}_PLANKS`, label: "Tablones", qty: 8 });
+    ingredients.push({ uid: `T${tier}_METALBAR`, label: "Metal Bar", qty: 16 });
+    ingredients.push({ uid: `T${tier}_PLANKS`, label: "Planks", qty: 8 });
   } else if (/BOW|STAFF/.test(base)) {
-    ingredients.push({ uid: `T${tier}_PLANKS`, label: "Tablones", qty: 16 });
-    ingredients.push({ uid: `T${tier}_LEATHER`, label: "Cuero", qty: 8 });
+    ingredients.push({ uid: `T${tier}_PLANKS`, label: "Planks", qty: 16 });
+    ingredients.push({ uid: `T${tier}_LEATHER`, label: "Leather", qty: 8 });
   } else if (/ARMOR|HELMET|SHOES|HEAD|HOOD/.test(base)) {
-    ingredients.push({ uid: `T${tier}_CLOTH`, label: "Tela", qty: 12 });
-    ingredients.push({ uid: `T${tier}_LEATHER`, label: "Cuero", qty: 8 });
+    ingredients.push({ uid: `T${tier}_CLOTH`, label: "Cloth", qty: 12 });
+    ingredients.push({ uid: `T${tier}_LEATHER`, label: "Leather", qty: 8 });
   } else if (/BAG/.test(base)) {
-    ingredients.push({ uid: `T${tier}_LEATHER`, label: "Cuero", qty: 8 });
-    ingredients.push({ uid: `T${tier}_CLOTH`, label: "Tela", qty: 8 });
+    ingredients.push({ uid: `T${tier}_LEATHER`, label: "Leather", qty: 8 });
+    ingredients.push({ uid: `T${tier}_CLOTH`, label: "Cloth", qty: 8 });
   } else {
     return null;
   }
@@ -670,7 +669,7 @@ function CraftRecipe({ item }: { item: AlbionItem }) {
     <section>
       <div className="flex items-center gap-2 mb-4">
         <Hammer className="w-5 h-5 text-gold" />
-        <h3 className="font-display text-xl text-gold">Receta estimada</h3>
+        <h3 className="font-display text-xl text-gold">Estimated Recipe</h3>
       </div>
       <div className="grid sm:grid-cols-2 gap-3">
         {ingredients.map((ing) => (
@@ -685,7 +684,7 @@ function CraftRecipe({ item }: { item: AlbionItem }) {
         ))}
       </div>
       <p className="text-xs text-muted-foreground mt-3">
-        Cantidades base sin bonus de focus/estación. Ajusta según returns de tu ciudad de crafteo.
+        Base quantities without focus/station bonus. Adjust based on your crafting city returns.
       </p>
     </section>
   );
@@ -733,7 +732,7 @@ function RelatedItems({
     <section>
       <div className="flex items-center gap-2 mb-4">
         <Sparkles className="w-5 h-5 text-gold" />
-        <h3 className="font-display text-xl text-gold">Items relacionados</h3>
+        <h3 className="font-display text-xl text-gold">Related Items</h3>
       </div>
       {relQ.isLoading ? (
         <div className="bg-card border border-border rounded-xl p-6 flex items-center justify-center">
