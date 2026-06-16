@@ -9,13 +9,13 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const builds = await prisma.build.findMany({ select: { id: true } });
-  return builds.map((b) => ({ id: b.id }));
+  const builds = await prisma.build.findMany({ select: { slug: true } });
+  return builds.map((b) => ({ id: b.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const build = await prisma.build.findUnique({ where: { id } });
+  const build = await prisma.build.findUnique({ where: { slug: id } });
   if (!build) return { title: "Build Not Found" };
   return {
     title: build.title,
@@ -28,9 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BuildDetail({ params }: Props) {
-  const { id } = await params;
+  const slug = (await params).id;
   const build = await prisma.build.findUnique({
-    where: { id },
+    where: { slug },
     include: {
       items: true,
       stats: { orderBy: { lastSyncedAt: "desc" }, take: 1 },

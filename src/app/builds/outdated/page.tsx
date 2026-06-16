@@ -40,7 +40,7 @@ export default async function OutdatedPage() {
           {outdated.map((b) => (
             <Link
               key={b.id}
-              href={`/builds/${b.id}`}
+              href={`/builds/${b.slug}`}
               className="bg-card border border-red-800/40 rounded-xl p-5 space-y-3 hover:border-red-500/60 transition block"
             >
               <div className="flex items-start justify-between">

@@ -153,7 +153,7 @@ export function AdminBuildsClient({ builds }: { builds: AdminBuild[] }) {
               {filtered.map((b) => (
                 <tr key={b.id} className="border-b border-border/60 hover:bg-card/60 transition">
                   <td className="py-2 pr-3">
-                    <Link href={`/builds/${b.id}`} className="text-gold hover:underline font-medium">
+                    <Link href={`/builds/${b.slug}`} className="text-gold hover:underline font-medium">
                       {b.title}
                     </Link>
                   </td>
@@ -187,7 +187,7 @@ export function AdminBuildsClient({ builds }: { builds: AdminBuild[] }) {
                         <Edit3 className="w-3.5 h-3.5" />
                       </Link>
                       <Link
-                        href={`/builds/${b.id}`}
+                        href={`/builds/${b.slug}`}
                         className="p-1.5 text-muted-foreground hover:text-blue-400 transition rounded hover:bg-background/60"
                         title="View"
                       >

@@ -47,7 +47,7 @@ export function BuildCard({ build }: { build: BuildCardData }) {
 
   return (
     <Link
-      href={`/builds/${build.id}`}
+      href={`/builds/${build.slug}`}
       className="bg-card border border-border rounded-xl p-5 space-y-3 hover:border-gold/40 transition group block"
     >
       <div className="flex items-start justify-between gap-2">
