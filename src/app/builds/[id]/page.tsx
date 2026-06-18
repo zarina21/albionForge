@@ -11,14 +11,26 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  const builds = await prisma.build.findMany({ select: { slug: true } });
-  return builds.map((b) => ({ id: b.slug }));
+  try {
+    const builds = await prisma.build.findMany({ select: { slug: true } });
+    return builds.map((b) => ({ id: b.slug }));
+  } catch {
+    console.warn("DB not available during build — skipping static generation for builds/[id]");
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const build = await prisma.build.findUnique({ where: { slug: id } });
+  let build;
+  try {
+    build = await prisma.build.findUnique({ where: { slug: id } });
+  } catch {
+    return { title: "Build Not Found" };
+  }
   if (!build) return { title: "Build Not Found" };
   const contentLabel = build.contentType.replace(/_/g, " ");
   return {
@@ -55,14 +67,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BuildDetail({ params }: Props) {
   const slug = (await params).id;
-  const build = await prisma.build.findUnique({
-    where: { slug },
-    include: {
-      items: true,
-      stats: { orderBy: { lastSyncedAt: "desc" }, take: 1 },
-      costSnapshots: { orderBy: { createdAt: "desc" }, take: 1 },
-    },
-  });
+  let build;
+  try {
+    build = await prisma.build.findUnique({
+      where: { slug },
+      include: {
+        items: true,
+        stats: { orderBy: { lastSyncedAt: "desc" }, take: 1 },
+        costSnapshots: { orderBy: { createdAt: "desc" }, take: 1 },
+      },
+    });
+  } catch {
+    notFound();
+  }
 
   if (!build) notFound();
 

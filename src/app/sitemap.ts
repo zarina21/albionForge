@@ -4,16 +4,21 @@ import { prisma } from "@/lib/prisma";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://albionforge.online";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const builds = await prisma.build.findMany({
-    select: { slug: true, updatedAt: true },
-  });
+  let buildPages: MetadataRoute.Sitemap = [];
 
-  const buildPages = builds.map((b) => ({
-    url: `${SITE_URL}/builds/${b.slug}`,
-    lastModified: b.updatedAt,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+  try {
+    const builds = await prisma.build.findMany({
+      select: { slug: true, updatedAt: true },
+    });
+    buildPages = builds.map((b) => ({
+      url: `${SITE_URL}/builds/${b.slug}`,
+      lastModified: b.updatedAt,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }));
+  } catch {
+    console.warn("DB not available during sitemap generation");
+  }
 
   const staticPages: MetadataRoute.Sitemap = [
     {
