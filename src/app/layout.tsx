@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { QueryProvider } from "./providers";
 import { Header } from "@/components/Header";
 import { ForgeNav } from "@/components/ForgeNav";
@@ -200,6 +201,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             . Not affiliated with Sandbox Interactive.
           </footer>
           <Analytics />
+          <SpeedInsights />
         </QueryProvider>
       </body>
     </html>
