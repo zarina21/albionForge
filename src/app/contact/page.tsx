@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, Github, Globe, Building2 } from "lucide-react";
+import { Mail, Globe, Building2 } from "lucide-react";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://albionforge.online";
 
@@ -47,31 +47,11 @@ export default function ContactPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:zarinagavilano@gmail.com" className="text-gold hover:underline text-sm">
-                    zarinagavilano@gmail.com
-                  </a>
-                </li>
-                <li>
                   <a href="mailto:contact@novaenterprice.online" className="text-gold hover:underline text-sm">
                     contact@novaenterprice.online
                   </a>
                 </li>
               </ul>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Github className="w-5 h-5 text-gold shrink-0" />
-            <div>
-              <p className="text-sm text-muted-foreground">GitHub</p>
-              <a
-                href="https://github.com/zarina21"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gold hover:underline text-sm"
-              >
-                github.com/zarina21
-              </a>
             </div>
           </div>
 
